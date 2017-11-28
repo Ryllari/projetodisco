@@ -1,5 +1,5 @@
 # projetodisco v 1.0 
-## Simulacao dos algoritmos de escalonamento de braço do disco (Python3)
+## Simulaçao dos algoritmos de escalonamento de braço do disco (Python3)
 * FIFO/FCFS
 * SSF
 * SCAN
