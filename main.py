@@ -63,6 +63,8 @@ def ssf(pos, time, req):
             if (seek < min_seek):
                 min_seek = seek
                 x = request
+                f.write(str(request))
+                f.write("-")
         dslc += abs(pos-x)
         l_dsl.append(abs(pos-x))
         pos = x
@@ -103,14 +105,18 @@ def scan(cil, pos, time, req):
             l_dsl.append(abs(pos-x))
             pos = x
             r.remove(x)
+            f.write(str(x))
+            f.write("-")
     # seek back up from end to 0
     count = cil
     while count >= 0:
         if (count in r):
             dslc += abs(pos-count)
-            l_dsl.append(abs(pos-x))
+            l_dsl.append(abs(pos-count))
             pos = count
             r.remove(count)
+            f.write(str(count))
+            f.write("-")
         count -= 1
 
     lt = [time * d for d in l_dsl]
@@ -147,6 +153,8 @@ def cscan(cil, pos, time, req):
             l_dsl.append(abs(pos-x))
             pos = x
             r.remove(x)
+            f.write(str(x))
+            f.write("-")
 
     # go back to beginning and continue seeking
     end = max(r)
@@ -156,6 +164,8 @@ def cscan(cil, pos, time, req):
             l_dsl.append(abs(pos-i))
             pos = i
             r.remove(i)
+            f.write(str(i))
+            f.write("-")
 
     lt = [time * d for d in l_dsl]
     m_dslc = dslc / n
