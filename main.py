@@ -18,7 +18,7 @@ def fifo(pos, time, req):
     f = open("fifo.txt", "w")
     dslc = 0
     n = len(r)
-    l_dsl = [0]
+    l_dsl = []
     for request in r:
         dslc += abs(request-pos)
         l_dsl.append(abs(request-pos))
@@ -30,10 +30,10 @@ def fifo(pos, time, req):
     m_dslc = dslc / n
     m_seek = time * dslc / n    
     name = f.name
-    vd = statistics.pvariance(l_dsl)
-    dpd = statistics.pstdev(l_dsl)
-    vt = statistics.pvariance(lt)
-    dpt = statistics.pstdev(lt)
+    vd = statistics.variance(l_dsl)
+    dpd = statistics.stdev(l_dsl)
+    vt = statistics.variance(lt)
+    dpt = statistics.stdev(lt)
     f.close()
     print('\nFIFO/FCFS')
     print('Quantidade de deslocamento:', dslc)
@@ -55,7 +55,7 @@ def ssf(pos, time, req):
     min_seek = abs(pos-high)
     r.sort()
     dslc = 0
-    l_dsl = [0]
+    l_dsl = []
     while len(r) > 0:
         # find the shortest distance from the current position
         for request in r:
@@ -74,10 +74,10 @@ def ssf(pos, time, req):
     m_dslc = dslc / n
     m_seek = time * dslc / n    
     name = f.name
-    vd = statistics.pvariance(l_dsl)
-    dpd = statistics.pstdev(l_dsl)
-    vt = statistics.pvariance(lt)
-    dpt = statistics.pstdev(lt)
+    vd = statistics.variance(l_dsl)
+    dpd = statistics.stdev(l_dsl)
+    vt = statistics.variance(lt)
+    dpt = statistics.stdev(lt)
     f.close()
     print('\nSSF')
     print('Quantidade de deslocamento:', dslc)
@@ -95,7 +95,7 @@ def scan(cil, pos, time, req):
     n = len(r)
     dslc = 0
     start = pos
-    l_dsl = [0]
+    l_dsl = []
     # seek to end from starting pos
     for x in range(start, cil):
         if (x in r):
@@ -117,10 +117,10 @@ def scan(cil, pos, time, req):
     m_dslc = dslc / n
     m_seek = time * dslc / n    
     name = f.name
-    vd = statistics.pvariance(l_dsl)
-    dpd = statistics.pstdev(l_dsl)
-    vt = statistics.pvariance(lt)
-    dpt = statistics.pstdev(lt)
+    vd = statistics.variance(l_dsl)
+    dpd = statistics.stdev(l_dsl)
+    vt = statistics.variance(lt)
+    dpt = statistics.stdev(lt)
     f.close()
     print('\nSCAN')
     print('Quantidade de deslocamento:', dslc)
@@ -139,7 +139,7 @@ def cscan(cil, pos, time, req):
     dslc = 0
     n = len(r)
     start = pos
-    l_dsl = [0]
+    l_dsl = []
     # seek to end from starting pos
     for x in range(start,cil):
         if (x in r):
@@ -161,10 +161,10 @@ def cscan(cil, pos, time, req):
     m_dslc = dslc / n
     m_seek = time * dslc / n    
     name = f.name
-    vd = statistics.pvariance(l_dsl)
-    dpd = statistics.pstdev(l_dsl)
-    vt = statistics.pvariance(lt)
-    dpt = statistics.pstdev(lt)
+    vd = statistics.variance(l_dsl)
+    dpd = statistics.stdev(l_dsl)
+    vt = statistics.variance(lt)
+    dpt = statistics.stdev(lt)
     f.close()
     print('\nCSCAN')
     print('Quantidade de deslocamento:', dslc)

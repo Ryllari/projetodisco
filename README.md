@@ -23,5 +23,3 @@ Para cada um dos quatro algoritmos simulados, o programa deverá fornecer as seg
 
 ## Executando o script
 > python main.py <qtd_cilindros> <posicao_inicial> <tempo_seek> <nome_arquivo>
-
-*OBS: Projeto em andamento*
